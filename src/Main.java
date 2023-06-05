@@ -1,7 +1,4 @@
-import classes.Market;
-import classes.OrdinaryClient;
-import classes.SpecialClient;
-import classes.TaxService;
+import classes.*;
 import interfaces.iActorBehaviour;
 
 public class Main {
@@ -11,12 +8,16 @@ public class Main {
         iActorBehaviour client1 = new OrdinaryClient("Boris");
         iActorBehaviour client2 = new OrdinaryClient("Dasha");
         iActorBehaviour client3 = new SpecialClient("Prezident", 1);
+        iActorBehaviour client4 = new ActionClient("Ivan", "Скидка", 1);
 
         market.acceptToMarket(client1);
         market.acceptToMarket(client2);
         market.acceptToMarket(client3);
+        market.acceptToMarket(client4);
         market.acceptToMarket(new TaxService());
 
         market.update();
+
+        market.takeItem(client4.getActor(), "iPhone");
     }
 }

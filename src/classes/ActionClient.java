@@ -13,6 +13,15 @@ public class ActionClient extends Actor{
         this.nameAction = nameAction;
         this.idActionClient = idActionClient;
     }
+    /**
+     *
+     * @param item - название товара
+     * @return
+     */
+    @Override
+    public String returnOrder(String item) {
+        return item;
+    }
 
     public String getNameAction() {
         return nameAction;
@@ -38,33 +47,50 @@ public class ActionClient extends Actor{
         ActionClient.countActionClient = countActionClient;
     }
 
-    @Override
     public String getName() {
-        return null;
+        return super.name;
     }
 
-    @Override
-    public void setMakeOrder(boolean makeOrder) {
-
-    }
-
-    @Override
-    public void setTakeOrder(boolean pickUpOrder) {
-
-    }
-
-    @Override
-    public boolean isMakeOrder() {
-        return false;
-    }
-
-    @Override
+    /**
+     * вернуть значение поля isTakeOrder
+     * @return
+     */
     public boolean isTakeOrder() {
-        return false;
+        return super.isTakeOrder;
     }
 
-    @Override
-    public Actor getActor() {
-        return null;
+    /**
+     * вернуть значение поля isMakeOrder
+     * @return
+     */
+    public boolean isMakeOrder() {
+        return super.isMakeOrder;
     }
+
+    /**
+     * установить флаг заказа
+     * @param flag true- заказ получен, иначе false
+     */
+
+    public void setTakeOrder(boolean flag) {
+        super.isTakeOrder = flag;
+    }
+
+    /**
+     * установить флаг заказа
+     * @param flag true- заказ сделан, иначе false
+     */
+    public void setMakeOrder(boolean flag) {
+        super.isMakeOrder = flag;
+    }
+
+    /**
+     * вернуть ссылку на этого клиента
+     * @return
+     */
+    public Actor getActor() {
+        return this;
+    }
+
+
 }

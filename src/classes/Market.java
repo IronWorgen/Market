@@ -120,6 +120,18 @@ public class Market implements iMarketBehaviour,iQueueBehaviour {
 
     }
 
+    /**
+     * принять товар возвращенный пользователем
+     * @param actor - пользователь
+     * @param itemName - название товара
+     */
+    @Override
+    public void takeItem(Actor actor, String itemName){
+        System.out.printf("Пользователь %s вернул товар \"%s\"", actor.getName(), itemName);
+    }
+
+
+
 
 
 }
